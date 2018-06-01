@@ -72,9 +72,14 @@
 #include <board_config.h>
 
 /* Configuration Constants */
-#define TERARANGER_BUS           PX4_I2C_BUS_EXPANSION
-#define TRONE_BASEADDR      0x30 /* 7-bit address */
-#define TREVO_BASEADDR      0x31 /* 7-bit address */
+#define TERARANGER_BUS              2 /* EDIT. Carlos. I changed the bus on which the driver thinks the
+                                         teraragner is at. The original value was the macro PX4_I2C_BUS_EXPANSION.
+                                         After digging around I found that this value is set to 3. I have 
+                                         changed it to two and now the Pixhawk 2.1 is able to register the
+                                         teraranger and give data. */
+
+#define TRONE_BASEADDR              0x30 /* 7-bit address */
+#define TREVO_BASEADDR              0x31 /* 7-bit address */
 #define TERARANGER_DEVICE_PATH   	"/dev/teraranger"
 
 /* TERARANGER Registers addresses */
@@ -247,7 +252,7 @@ TERARANGER::TERARANGER(uint8_t rotation, int bus, int address) :
 	I2C::_retries = 3;
 
 	// enable debug() calls
-	_debug_enabled = false;
+	_debug_enabled = true;
 
 	// work_cancel in the dtor will explode if we don't do this...
 	memset(&_work, 0, sizeof(_work));

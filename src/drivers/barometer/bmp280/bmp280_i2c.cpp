@@ -49,7 +49,7 @@
 class BMP280_I2C: public device::I2C, public bmp280::IBMP280
 {
 public:
-	BMP280_I2C(uint8_t bus, uint8_t device, bool external);
+    BMP280_I2C(uint8_t bus, uint8_t device, bool external_EDIT); //Carlos
 	virtual ~BMP280_I2C() = default;
 
 	bool is_external();
@@ -71,10 +71,10 @@ bmp280::IBMP280 *bmp280_i2c_interface(uint8_t busnum, uint8_t device, bool exter
 	return new BMP280_I2C(busnum, device, external);
 }
 
-BMP280_I2C::BMP280_I2C(uint8_t bus, uint8_t device, bool external) :
+BMP280_I2C::BMP280_I2C(uint8_t bus, uint8_t device, bool external_EDIT) ://Carlos
 	I2C("BMP280_I2C", nullptr, bus, device, 100 * 1000)
 {
-	_external = external;
+	_external = external_EDIT;
 }
 
 bool BMP280_I2C::is_external()

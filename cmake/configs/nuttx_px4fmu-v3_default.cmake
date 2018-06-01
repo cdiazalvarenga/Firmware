@@ -17,7 +17,7 @@ set(config_module_list
 	drivers/differential_pressure
 	drivers/distance_sensor
 	drivers/magnetometer
-	drivers/telemetry
+    drivers/telemetry
 
 	drivers/airspeed
 	drivers/batt_smbus
