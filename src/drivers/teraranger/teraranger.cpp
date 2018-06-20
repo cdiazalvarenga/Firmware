@@ -75,7 +75,7 @@
 #include <board_config.h>
 
 /* Configuration Constants */
-#define TERARANGER_BUS           PX4_I2C_BUS_EXPANSION
+#define TERARANGER_BUS      PX4_I2C_BUS_ONBOARD /* Fix bug with driver not starting */
 #define TRONE_BASEADDR      0x30 /* 7-bit address */
 #define TREVO_BASEADDR      0x31 /* 7-bit address */
 #define TERARANGER_DEVICE_PATH   	"/dev/teraranger"
